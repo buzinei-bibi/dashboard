@@ -3,6 +3,15 @@ import { PiMoon, PiSunDim } from "react-icons/pi";
 
 const Theme = () => {
   const [theme, setTheme] = React.useState("light");
+  React.useEffect(() => {
+   if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+
   return (
     <button
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
