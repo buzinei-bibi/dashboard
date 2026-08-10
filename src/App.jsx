@@ -1,9 +1,7 @@
-import { Route } from 'react-router-dom'
-import { Routes } from 'react-router-dom'
+import { Routes,Route } from 'react-router-dom'
 import Header from './components/Layout/Header/Header'
 import Sidebar from './components/Layout/Sidebar/Sidebar'
 import ClientesList from './pages/clientes/ClientesList'
-import Table from './components/Table/Table'
 
 function App() {
 
@@ -17,7 +15,6 @@ function App() {
           <Route path="/" element={<h1>HE4RT DELAS</h1>} />
           <Route path="/profile" element={<h1>HE4RT COMUNIDADE</h1>} />  
           <Route path="/clientes" element={<ClientesList />} />
-          <Route path="/table" element={<Table />} />
         </Routes>
         
       </main>
