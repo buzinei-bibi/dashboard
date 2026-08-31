@@ -6,14 +6,14 @@ const ClientsList = () => {
   const clientes = [
     {
       id: 1,
-      nome: "joão silva",
-      email: "joao@email.com",
+      nome: "buzina",
+      email: "buzina@email.com",
       cidade: "taubaté",
     },
     {
       id: 2,
-      nome: "maria souza",
-      email: "maria@email.com",
+      nome: "buzinei-bibi",
+      email: "buzinei@email.com",
       cidade: "são paulo",
     },
   ];
@@ -54,7 +54,7 @@ const ClientsList = () => {
 ];
 
   return (
-    <Card title="lista de clientes">
+    <Card title="lista de clientes" button="clientes">
       <Table data={clientes} columns={columns} />
     </Card>
   )

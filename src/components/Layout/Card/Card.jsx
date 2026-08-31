@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 const Card = ({
     title,
+    button,
     children,
     className = "",
 }) => {
@@ -7,6 +10,9 @@ const Card = ({
         <div
             className={`
             bg-white
+            flex
+            justify-between
+            items-center
             dark:bg-slate-900
             rounded-xl
             shadow-md
@@ -29,6 +35,15 @@ const Card = ({
                     <h3 className="font-semibold text-lg">
                         {title}
                     </h3>
+
+                    {button && (
+                        <Link 
+                            className="px-3 py-1 bg-purple-700 text-white rounded-lg"
+                            to={`/${button}/novo`}
+                        >
+                            novo
+                        </Link>
+                    )}
                 </div>
             )}
 
