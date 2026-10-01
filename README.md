@@ -1,16 +1,26 @@
-# React + Vite
+# dashboard de exemplo em react.js
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+exercício de sala de aula para entender melhor como funciona um dashboard em react.js, com a ideia de implementar a parte do back-end depois.
 
-Currently, two official plugins are available:
+## funcionalidades
+- tela inicial (home)
+- tela de clientes
+- navegação entre as duas telas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## estrutura
+o exercício é dividido em componentes, cada um com uma função:
+- componentes de layout, como menu e cabeçalho
+- uma página para a home
+- uma página para os clientes
+- dados de exemplo no lugar de um back-end real
 
-## React Compiler
+## o que aprendi
+- como funcionam componentes em react
+- como organizar um dashboard em páginas e componentes reutilizáveis
+- como navegar entre telas
+- como o front-end vai precisar de um back-end para fornecer os dados de verdade
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## próximos passos
+- criar o back-end para alimentar a tela de clientes
+- trocar os dados de exemplo por dados reais
+```
