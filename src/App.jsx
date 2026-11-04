@@ -1,25 +1,35 @@
-import { Routes, Route } from 'react-router-dom'
-import Header from './components/Layout/Header/Header'
-import Sidebar from './components/Layout/Sidebar/Sidebar'
-import ClientesList from './pages/clientes/ClientesList'
-import ClientesForm from './pages/clientes/ClientesForm'
+import { Routes, Route, Navigate, useParams } from 'react-router-dom'
+import Header from './components/layout/Header/Header'
+import Sidebar from './components/layout/Sidebar/Sidebar'
+import Footer from './components/layout/Footer/Footer'
+import Home from './pages/Home/Home'
+import ClientesList from './pages/Clientes/ClientesList'
+import ClientesForm from './pages/Clientes/ClientesForm'
+
+// recria o formulário ao trocar entre "novo" e "editar", para limpar os campos
+const ClientesFormRoute = () => {
+  const { id } = useParams()
+  return <ClientesForm key={id ?? 'novo'} />
+}
 
 function App() {
-
   return (
-    <div className="flex flex-col w-full h-screen overflow-hidden">
-      <Header />
-      <div className="flex flex-1">
-        <Sidebar />
-        <main className="flex-1 p-4 bg-white dark:bg-purple-900 font-bold">
-          <Routes>
-            <Route path="/" element={<h1>HE4RT DEVELOPERS</h1>} />
-            <Route path="/profile" element={<ClientesList />} />
-            <Route path="/clientes/editar/:id" element={<ClientesForm />} />
-            <Route path="/clientes/novo" element={<ClientesForm />} />
-          </Routes>
-
-        </main>
+    <div className="flex w-full h-screen overflow-hidden bg-app text-slate-800 dark:text-slate-100 uppercase">
+      <Sidebar />
+      <div className="flex flex-col flex-1 min-w-0">
+        <Header />
+        <div className="flex flex-col flex-1 overflow-y-auto">
+          <main className="flex-1 p-6 md:p-8">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/clientes" element={<ClientesList />} />
+              <Route path="/clientes/novo" element={<ClientesFormRoute />} />
+              <Route path="/clientes/editar/:id" element={<ClientesFormRoute />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </div>
     </div>
   )

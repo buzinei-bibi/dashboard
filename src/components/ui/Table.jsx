@@ -1,19 +1,13 @@
 const Table = ({ columns = [], data = [] }) => {
   return (
     <div className="overflow-x-auto">
-      <table className="w-full">
+      <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-slate-200 dark:border-slate-700">
+          <tr className="bg-purple-200/40 dark:bg-white/[0.04]">
             {columns.map((column) => (
               <th
                 key={column.accessor}
-                className="
-                  px-4 py-3
-                  text-left
-                  font-semibold
-                  text-slate-600
-                  dark:text-slate-300
-                "
+                className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-purple-700/80 dark:text-purple-200/70"
               >
                 {column.header}
               </th>
@@ -24,14 +18,8 @@ const Table = ({ columns = [], data = [] }) => {
         <tbody>
           {data.map((row, index) => (
             <tr
-              key={index}
-              className="
-                border-b
-                border-slate-100
-                dark:border-slate-800
-                hover:bg-slate-50
-                dark:hover:bg-slate-800
-              "
+              key={row.id ?? index}
+              className="border-t border-purple-100 dark:border-white/5 hover:bg-purple-200/30 dark:hover:bg-white/[0.04]"
             >
               {columns.map((column) => (
                 <td key={column.accessor} className="px-4 py-3">
@@ -43,7 +31,7 @@ const Table = ({ columns = [], data = [] }) => {
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
-export default Table;
+export default Table
