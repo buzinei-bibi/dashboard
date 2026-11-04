@@ -2,13 +2,13 @@
   <img src=".github/logo.png" alt="logo he4rt developers" width="120" />
 </p>
 
-<h1 align="center">dashboard</h1>
+<h1 align="center">DASHBOARD</h1>
 
 <p align="center">
   exercício de sala de aula para entender melhor como funciona um dashboard em react.js, com a ideia de implementar a parte do back-end depois. a identidade visual é inspirada na comunidade he4rt developers.
 </p>
 
-## funcionalidades
+## FUNCIONALIDADES
 - **dashboard:** quantidade de clientes, cidades atendidas e os últimos cadastrados
 - **clientes:** lista com busca por nome, e-mail ou cidade
 - **cadastro e edição:** formulário completo (dados pessoais e endereço)
@@ -16,13 +16,13 @@
 - **tema claro e escuro**, os dois em gradiente roxo, lembrando a escolha do usuário
 - menu lateral que vira só ícones em telas pequenas
 
-## tecnologias
+## TECNOLOGIAS
 - [react 19](https://react.dev) + [vite](https://vite.dev)
-- [tailwind css 4](https://tailwindcss.com)
+- [tailwind css](https://tailwindcss.com)
 - [react router](https://reactrouter.com) para navegar entre as telas
 - [react icons](https://react-icons.github.io/react-icons)
 
-## como rodar
+## COMO RODAR
 precisa ter o [node.js](https://nodejs.org) instalado.
 
 ```bash
@@ -36,7 +36,7 @@ outros comandos:
 - `npm run build` gera a versão final na pasta `dist`
 - `npm run lint` procura erros no código
 
-## estrutura
+## ESTRUTURA
 ```
 src/
 ├── assets/              logo e foto de perfil
@@ -54,14 +54,14 @@ src/
 
 os dados ficam salvos no `localStorage` do navegador, no lugar de um back-end real. quando o back-end existir, é só trocar as funções de `src/services/clientes.js` por chamadas à api.
 
-## o que aprendi
+## O QUE APRENDI
 - como funcionam componentes em react
 - como organizar um dashboard em páginas e componentes reutilizáveis
 - como navegar entre telas
 - como montar tema claro e escuro com tailwind
 - como o front-end vai precisar de um back-end para fornecer os dados de verdade
 
-## próximos passos
+## PRÓXIMOS PASSOS
 - criar o back-end para alimentar a tela de clientes
 - trocar os dados de exemplo por dados reais
 - foto de perfil própria para cada cliente
