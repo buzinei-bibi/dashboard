@@ -1,6 +1,12 @@
-# dashboard
+<p align="center">
+  <img src=".github/logo.png" alt="logo he4rt developers" width="120" />
+</p>
 
-exercício de sala de aula para entender melhor como funciona um dashboard em react.js, com a ideia de implementar a parte do back-end depois. a identidade visual é inspirada na comunidade he4rt developers.
+<h1 align="center">dashboard</h1>
+
+<p align="center">
+  exercício de sala de aula para entender melhor como funciona um dashboard em react.js, com a ideia de implementar a parte do back-end depois. a identidade visual é inspirada na comunidade he4rt developers.
+</p>
 
 ## funcionalidades
 - **dashboard:** quantidade de clientes, cidades atendidas e os últimos cadastrados
