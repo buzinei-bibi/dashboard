@@ -1,38 +1,85 @@
-// aplica uma máscara onde "9" é um dígito, ex: "999.999.999-99"
-const aplicarMascara = (valor, mascara) => {
-  if (!mascara) return valor
+import React from 'react'
 
-  const numeros = String(valor ?? '').replace(/\D/g, '')
-  let resultado = ''
-  let i = 0
+const Input = ({
+    required,
+    type = "text",
+    name,
+    placeholder,
+    value,
+    onChange,
+    maxLength,
+    mask,
+    className = "",
+}) => {
 
-  for (let m = 0; m < mascara.length && i < numeros.length; m++) {
-    if (mascara[m] === '9') {
-      resultado += numeros[i]
-      i++
-    } else {
-      resultado += mascara[m]
-    }
-  }
+    const applyMask = (value, mask) => {
+        if (!mask) return value;
 
-  return resultado
-}
+        // Máscara monetária
+        if (mask === "money") {
+            const numbers = value.replace(/\D/g, "");
 
-const Input = ({ className = '', mask, onChange, value, ...props }) => {
-  const handleChange = (e) => {
-    if (!mask) return onChange?.(e)
-    onChange?.({ target: { name: e.target.name, value: aplicarMascara(e.target.value, mask) } })
-  }
+            if (!numbers) return "";
 
-  return (
-    <input
-      {...props}
-      value={value ?? ''}
-      onChange={handleChange}
-      maxLength={props.maxLength ?? (mask ? mask.length : undefined)}
-      className={`w-full rounded-xl border border-purple-200 dark:border-white/10 bg-field px-3.5 py-2.5 text-sm placeholder:text-slate-400 dark:placeholder:text-purple-200/30 focus:outline-none focus:border-purple-400 focus:ring-4 focus:ring-purple-400/20 dark:[color-scheme:dark] ${className}`}
-    />
-  )
-}
+            const amount = (parseInt(numbers, 10) / 100).toFixed(2);
 
-export default Input
+            return amount.replace(".", ",").replace(
+                /\B(?=(\d{3})+(?!\d))/g,
+                "."
+            );
+        }
+
+        let maskedValue = "";
+        let valueIndex = 0;
+
+        const numbers = value.replace(/\D/g, "");
+
+        for (
+            let maskIndex = 0;
+            maskIndex < mask.length && valueIndex < numbers.length;
+            maskIndex++
+        ) {
+            if (mask[maskIndex] === "9") {
+                maskedValue += numbers[valueIndex];
+                valueIndex++;
+            } else {
+                maskedValue += mask[maskIndex];
+            }
+        }
+
+        return maskedValue;
+    };
+
+    const handleChange = (e) => {
+        const maskedValue = applyMask(e.target.value, mask);
+
+        onChange({
+            target: {
+                name,
+                value: maskedValue,
+            },
+        });
+    };
+
+    return (
+        <input
+            required={required}
+            maxLength={maxLength}
+            type={type}
+            value={value}
+            onChange={handleChange}
+            name={name}
+            placeholder={placeholder}
+            className={`
+                mt-1 block w-full rounded-xl border border-purple-200 bg-field
+                px-3.5 py-2.5 text-sm placeholder:text-slate-400
+                focus:outline-none focus:border-purple-400 focus:ring-4 focus:ring-purple-400/20
+                dark:border-white/10 dark:placeholder:text-purple-200/30
+                dark:[color-scheme:dark]
+                ${className}
+            `}
+        />
+    );
+};
+
+export default Input;

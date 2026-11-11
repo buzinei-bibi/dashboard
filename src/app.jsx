@@ -1,28 +1,14 @@
-import { Routes, Route, Navigate, useParams } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
-import Header from './components/layout/header/header'
-import Sidebar from './components/layout/sidebar/sidebar'
-import Footer from './components/layout/footer/footer'
-import Home from './pages/home/home'
-import ClientesList from './pages/clientes/clientes-list'
-import ClientesForm from './pages/clientes/clientes-form'
-import FornecedoresList from './pages/fornecedores/fornecedores-list'
-import FornecedoresForm from './pages/fornecedores/fornecedores-form'
-import ProdutosList from './pages/produtos/produtos-list'
-import ProdutosForm from './pages/produtos/produtos-form'
-
-// recria o formulário ao trocar entre "novo" e "editar", para limpar os campos
-const FormRoute = ({ component: Form }) => {
-  const { id } = useParams()
-  return <Form key={id ?? 'novo'} />
-}
-
-// gera as rotas de lista, novo e editar de um cadastro
-const rotasCrud = (caminho, List, Form) => [
-  <Route key={caminho} path={`/${caminho}`} element={<List />} />,
-  <Route key={`${caminho}-novo`} path={`/${caminho}/novo`} element={<FormRoute component={Form} />} />,
-  <Route key={`${caminho}-editar`} path={`/${caminho}/editar/:id`} element={<FormRoute component={Form} />} />,
-]
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/layout/header/header";
+import Sidebar from "./components/layout/sidebar/sidebar";
+import ClientsList from "./pages/clientes/clients-list";
+import ClientsForm from "./pages/clientes/clients-form";
+import VendasForm from "./pages/vendas/vendas-form";
+import { ToastContainer } from 'react-toastify';
+import SuppliersList from "./pages/fornecedores/suppliers-list";
+import SuppliersForm from "./pages/fornecedores/suppliers-form";
+import ProductsList from "./pages/produtos/products-list";
+import ProductsForm from "./pages/produtos/products-form";
 
 function App() {
   return (
@@ -30,23 +16,27 @@ function App() {
       <Sidebar />
       <div className="flex flex-col flex-1 min-w-0">
         <Header />
-        <div className="flex flex-col flex-1 overflow-y-auto">
-          <main className="flex-1 p-6 md:p-8">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              {rotasCrud('clientes', ClientesList, ClientesForm)}
-              {rotasCrud('fornecedores', FornecedoresList, FornecedoresForm)}
-              {rotasCrud('produtos', ProdutosList, ProdutosForm)}
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
+        <main className="flex-1 p-6 md:p-8 overflow-y-auto">
+          <Routes>
+            <Route path="/" element={<h1 className="text-3xl font-bold text-gradient">Página Inicial</h1>} />
+            {/* Rotas para Clientes */}
+            <Route path="/clientes" element={<ClientsList />} />
+            <Route path="/clientes/novo" element={<ClientsForm />} />
+            <Route path="/clientes/edit/:id" element={<ClientsForm />} />
+            {/* Rotas para Fornecedores */}
+            <Route path="/fornecedores" element={<SuppliersList />} />
+            <Route path="/fornecedores/novo" element={<SuppliersForm />} />
+            <Route path="/fornecedores/edit/:id" element={<SuppliersForm />} />
+            {/* Rotas para Produtos */}
+            <Route path="/produtos" element={<ProductsList />} />
+            <Route path="/produtos/novo" element={<ProductsForm />} />
+            <Route path="/produtos/edit/:id" element={<ProductsForm />} />
+          </Routes>
+          <ToastContainer />
+        </main>
       </div>
-
-      <ToastContainer position="top-right" autoClose={3500} newestOnTop />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

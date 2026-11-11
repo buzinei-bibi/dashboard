@@ -9,10 +9,11 @@
 </p>
 
 ## FUNCIONALIDADES
-- **dashboard:** quantidade de clientes, cidades atendidas, fornecedores, produtos e os últimos clientes cadastrados
 - **clientes, fornecedores e produtos:** lista, cadastro, edição e exclusão (crud completo pela api)
+- **produtos** com marca (vinda da api de marcas), foto e preço com máscara de dinheiro
+- **vendas:** formulário de venda com cliente, produtos, quantidades e total
 - **busca na api** enquanto digita (espera 500ms depois que você para de digitar)
-- **máscaras** de cpf, cnpj, telefone/whatsapp e cep
+- **máscaras** de cpf, cnpj, telefone/whatsapp, cep e dinheiro
 - **exclusão** com janela de confirmação
 - **notificações** (toasts) de sucesso e erro
 - **carregando** enquanto busca, salva ou exclui
@@ -29,10 +30,11 @@
 ## COMO RODAR
 precisa ter o [node.js](https://nodejs.org) instalado e a api php rodando (por padrão em `http://localhost:8080`).
 
-copie o arquivo `.env.example` para `.env` e ajuste o endereço da api, se precisar:
+crie um arquivo `.env` na raiz com o endereço da api:
 
 ```
 VITE_API_URL=http://localhost:8080
+VITE_API_TOKEN=
 ```
 
 depois:
@@ -49,7 +51,7 @@ outros comandos:
 - `npm run lint` procura erros no código
 
 ## API
-o front espera as rotas `/clientes/`, `/fornecedores/` e `/produtos/`, cada uma com:
+o front espera as rotas `/clientes/`, `/fornecedores/`, `/produtos/`, `/marcas/` e `/vendas/`, cada uma com:
 
 | ação | método | rota |
 |---|---|---|
@@ -67,17 +69,17 @@ as respostas vêm no formato `{ "data": [...], "message": "..." }`; `204` signif
 src/
 ├── assets/              logo e foto de perfil
 ├── components/
-│   ├── layout/          cabeçalho, menu lateral e rodapé
-│   └── ui/              peças reutilizáveis: card, tabela, campo, modal, carregando, lista e formulário
-├── hooks/               lógica comum das listas e dos formulários (carregar, buscar, salvar, excluir)
+│   ├── loading.jsx      tela de carregando
+│   ├── layout/          card, header (tema e usuário), sidebar e table
+│   └── ui/              button, image-upload, input, label, modal, search-input, select e textarea
 ├── pages/
-│   ├── home/            tela inicial (dashboard)
-│   ├── clientes/        lista e formulário de clientes
-│   ├── fornecedores/    lista e formulário de fornecedores
-│   └── produtos/        lista e formulário de produtos
-├── services/            conversa com a api (api.js + um arquivo por cadastro)
-├── utils/               formatação (preço em reais)
+│   ├── clientes/        clients-list e clients-form
+│   ├── fornecedores/    suppliers-list e suppliers-form
+│   ├── produtos/        products-list e products-form
+│   └── vendas/          vendas-form
+├── services/            api.js + clientes, fornecedores, marcas, produtos e vendas
 ├── app.jsx              rotas e layout geral
+├── app.css              importa o tailwind
 └── index.css            cores e gradientes dos temas
 ```
 
@@ -87,7 +89,6 @@ src/
 - como navegar entre telas
 - como montar tema claro e escuro com tailwind
 - como consumir uma api (get, post, put e delete) com fetch
-- como reaproveitar lógica com hooks próprios
 
 ## PRÓXIMOS PASSOS
 - foto de perfil própria para cada cliente
@@ -95,5 +96,5 @@ src/
 - login para acessar o painel
 
 ## PADRÕES DO PROJETO
-- nomes de arquivos e pastas sempre em minúsculo, com hífen separando as palavras (ex: `clientes-list.jsx`)
+- nomes de arquivos e pastas sempre em minúsculo, com hífen separando as palavras (ex: `clients-list.jsx`)
 - todos os textos que aparecem na tela escritos em MAIÚSCULO no código
