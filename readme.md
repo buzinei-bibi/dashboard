@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/logo.png" alt="logo he4rt developers" width="120" />
+  <img src="src/assets/logo.png" alt="logo he4rt developers" width="120" />
 </p>
 
 <h1 align="center">DASHBOARD</h1>
