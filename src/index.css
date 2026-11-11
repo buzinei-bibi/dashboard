@@ -82,6 +82,39 @@
   }
 }
 
+/* notificações (react-toastify) no mesmo visual do painel */
+:root {
+  --grad-toast: linear-gradient(145deg, #faf5ff 0%, #ede0ff 100%);
+  --toast-text: #1e293b;
+  --toast-border: rgb(216 180 254 / 0.7);
+}
+
+.dark {
+  --grad-toast: linear-gradient(145deg, #2a1245 0%, #1a0b2e 100%);
+  --toast-text: #f3e8ff;
+  --toast-border: rgb(255 255 255 / 0.1);
+}
+
+.Toastify .Toastify__toast {
+  background: var(--grad-toast);
+  color: var(--toast-text);
+  border: 1px solid var(--toast-border);
+  border-radius: 1rem;
+  box-shadow: var(--glow);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.Toastify .Toastify__progress-bar {
+  background: var(--grad-accent);
+}
+
+.Toastify .Toastify__close-button {
+  color: var(--toast-text);
+}
+
 @layer base {
   body {
     @apply antialiased;

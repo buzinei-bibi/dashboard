@@ -1,4 +1,4 @@
-const Table = ({ columns = [], data = [] }) => {
+const Table = ({ columns = [], data = [], rowKey = 'id' }) => {
   return (
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
@@ -18,7 +18,7 @@ const Table = ({ columns = [], data = [] }) => {
         <tbody>
           {data.map((row, index) => (
             <tr
-              key={row.id ?? index}
+              key={row[rowKey] ?? index}
               className="border-t border-purple-100 dark:border-white/5 hover:bg-purple-200/30 dark:hover:bg-white/[0.04]"
             >
               {columns.map((column) => (

@@ -1,6 +1,7 @@
 import { AiOutlineDashboard } from 'react-icons/ai'
 import { IoPeopleOutline } from 'react-icons/io5'
-import SidebarItem from './SidebarItem'
+import { PiTruck, PiPackage } from 'react-icons/pi'
+import SidebarItem from './sidebar-item'
 import logo from '../../../assets/logo.png'
 
 const Sidebar = () => {
@@ -14,14 +15,16 @@ const Sidebar = () => {
         <img src={logo} alt="HE4RT DEVELOPERS" className="h-8 w-auto drop-shadow-[0_4px_12px_rgba(255,255,255,0.35)]" />
         <div className="hidden md:flex flex-col leading-tight">
           <span className="font-bold tracking-wide">HE4RT</span>
-          <span className="text-[11px] uppercase tracking-[0.2em] text-white/60">developers</span>
+          <span className="text-[11px] uppercase tracking-[0.2em] text-white/60">DEVELOPERS</span>
         </div>
       </div>
 
       <nav className="relative flex flex-col gap-1 px-3 mt-4">
-        <span className="hidden md:block px-3 pb-2 text-[11px] uppercase tracking-[0.2em] text-white/50">menu</span>
-        <SidebarItem to="/" icon={AiOutlineDashboard} label="Dashboard" end />
-        <SidebarItem to="/clientes" icon={IoPeopleOutline} label="Clientes" />
+        <span className="hidden md:block px-3 pb-2 text-[11px] uppercase tracking-[0.2em] text-white/50">MENU</span>
+        <SidebarItem to="/" icon={AiOutlineDashboard} label="DASHBOARD" end />
+        <SidebarItem to="/clientes" icon={IoPeopleOutline} label="CLIENTES" />
+        <SidebarItem to="/fornecedores" icon={PiTruck} label="FORNECEDORES" />
+        <SidebarItem to="/produtos" icon={PiPackage} label="PRODUTOS" />
       </nav>
     </aside>
   )

@@ -12,7 +12,7 @@ const Card = ({ title, button, children, className = '' }) => {
 
           {button && (
             <Link to={`/${button}/novo`} className="btn-primary inline-flex items-center gap-1.5 px-4 py-2 text-sm">
-              <HiPlus /> novo
+              <HiPlus /> NOVO
             </Link>
           )}
         </div>
