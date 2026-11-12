@@ -65,11 +65,27 @@ const SuppliersList = () => {
 
   const columns = [
     {
-      header: "Código",
+      header: "código",
       accessor: "ID_PRODUTO",
     },
+
     {
-      header: "Produto",
+  header: "imagem",
+  accessor: "IMAGEM",
+  render: (row) =>
+    row.IMAGEM ? (
+      <img
+        src={row.IMAGEM}
+        alt={row.PRODUTO}
+        className="w-16 h-16 rounded-md object-cover"
+        onError={(e) => {
+          e.currentTarget.style.display = "none";
+        }}
+      />
+    ) : null,
+},
+    {
+      header: "produto",
       accessor: "PRODUTO",
       render: (row) => (
         <div>
@@ -79,11 +95,11 @@ const SuppliersList = () => {
       )
     },
     {
-      header: "Qtde",
-      accessor: "QTDE",
+      header: "quantidade",
+      accessor: "QUANTIDADE",
     },
     {
-      header: "$ Preço",
+      header: "$ preço",
       accessor: "PRECO_UNIT",
     },
     {

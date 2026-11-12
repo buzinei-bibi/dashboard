@@ -20,8 +20,9 @@ const ProductsForm = () => {
     ID_PRODUTO: "",
     PRODUTO: "",
     DESCRICAO: "",
-    QTDE: "0",
+    QUANTIDADE: "0",
     PRECO_UNIT: "0,00",
+    IMAGEM: "",
     MARCA: {
       ID_MARCA: "",
       MARCA: ""
@@ -55,8 +56,10 @@ const ProductsForm = () => {
         ID_PRODUTO: dados.data[0]["ID_PRODUTO"],
         PRODUTO: dados.data[0]["PRODUTO"],
         DESCRICAO: dados.data[0]["DESCRICAO"],
-        QTDE: dados.data[0]["QTDE"],
+        QUANTIDADE: dados.data[0]["QUANTIDADE"],
         PRECO_UNIT: dados.data[0]["PRECO_UNIT"],
+        // link da imagem salva (vem da API); se não tiver, fica vazio
+        IMAGEM: dados.data[0]["IMAGEM"] ?? "",
         MARCA: {
           ID_MARCA: dados.data[0]["MARCA"]["ID_MARCA"],
           MARCA: dados.data[0]["MARCA"]["MARCA"]
@@ -112,11 +115,11 @@ const ProductsForm = () => {
               {/* Foto */}
               <div>
                 <ImageUpload
-                  value={produto.FOTO}
+                  value={produto.IMAGEM}
                   onChange={(base64) =>
                     setProduto({
                       ...produto,
-                      FOTO: base64,
+                      IMAGEM: base64,
                     })
                   }
                 />
@@ -166,20 +169,20 @@ const ProductsForm = () => {
                 </div>
 
                 <div className="flex w-full gap-4">
-                  {/* QTDE */}
+                  {/* QUANTIDADE */}
                   <div className="w-full">
-                    <Label htmlFor="qtde" required>QTDE</Label>
+                    <Label htmlFor="quantidade" required>Quantidade</Label>
 
                     <Input
                       required={true}
                       type="number"
-                      id="qtde"
-                      name="qtde"
-                      value={produto.QTDE}
+                      id="quantidade"
+                      name="quantidade"
+                      value={produto.QUANTIDADE}
                       onChange={(e) => {
                         setProduto({
                           ...produto,
-                          QTDE: e.target.value,
+                          QUANTIDADE: e.target.value,
                         });
                       }}
                     />
