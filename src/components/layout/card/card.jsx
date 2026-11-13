@@ -6,6 +6,7 @@ import Button from "../../ui/button";
 const Card = ({
     title,
     button,
+    actions,
     children,
     className = "",
 }) => {
@@ -38,6 +39,7 @@ const Card = ({
                     <h3 className="font-semibold text-base tracking-tight">
                         {title}
                     </h3>
+                    {actions}
                     {button && (
                         <Link
                             to={`/${button}/novo`}>

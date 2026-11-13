@@ -3,6 +3,7 @@ import Header from "./components/layout/header/header";
 import Sidebar from "./components/layout/sidebar/sidebar";
 import ClientsList from "./pages/clientes/clients-list";
 import ClientsForm from "./pages/clientes/clients-form";
+import VendasList from "./pages/vendas/vendas-list";
 import VendasForm from "./pages/vendas/vendas-form";
 import { ToastContainer } from 'react-toastify';
 import SuppliersList from "./pages/fornecedores/suppliers-list";
@@ -31,6 +32,10 @@ function App() {
             <Route path="/produtos" element={<ProductsList />} />
             <Route path="/produtos/novo" element={<ProductsForm />} />
             <Route path="/produtos/edit/:id" element={<ProductsForm />} />
+            {/* Rotas para Vendas */}
+            <Route path="/vendas" element={<VendasList />} />
+            <Route path="/vendas/novo" element={<VendasForm />} />
+            <Route path="/vendas/edit/:id" element={<VendasForm />} />
           </Routes>
           <ToastContainer />
         </main>

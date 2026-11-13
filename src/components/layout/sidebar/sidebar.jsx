@@ -1,7 +1,7 @@
 import React from 'react'
 import { AiOutlineDashboard } from "react-icons/ai";
 import { IoPeopleOutline } from "react-icons/io5";
-import { PiTruck, PiPackage } from "react-icons/pi";
+import { PiTruck, PiPackage, PiShoppingCart } from "react-icons/pi";
 import SidebarItem from './sidebar-item'
 import logo from '../../../assets/logo.png'
 
@@ -26,6 +26,7 @@ const Sidebar = () => {
                 <SidebarItem to="clientes" icon={IoPeopleOutline} label="Clientes" />
                 <SidebarItem to="fornecedores" icon={PiTruck} label="Fornecedores" />
                 <SidebarItem to="produtos" icon={PiPackage} label="Produtos" />
+                <SidebarItem to="vendas" icon={PiShoppingCart} label="Vendas" />
             </nav>
         </aside>
     )
