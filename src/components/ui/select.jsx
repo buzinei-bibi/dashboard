@@ -23,7 +23,7 @@ const Select = ({
         <select
             required={required}
             name={name}
-            value={value}
+            value={value ?? ""}
             onChange={handleChange}
             className={`
                 mt-1 block w-full rounded-xl border border-purple-200 bg-field

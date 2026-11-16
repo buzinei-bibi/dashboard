@@ -5,11 +5,14 @@ import ClientsList from "./pages/clientes/clients-list";
 import ClientsForm from "./pages/clientes/clients-form";
 import VendasList from "./pages/vendas/vendas-list";
 import VendasForm from "./pages/vendas/vendas-form";
+import ComprasForm from "./pages/compras/compras-form";
+import ComprasList from "./pages/compras/compras-list";
 import { ToastContainer } from 'react-toastify';
 import SuppliersList from "./pages/fornecedores/suppliers-list";
 import SuppliersForm from "./pages/fornecedores/suppliers-form";
 import ProductsList from "./pages/produtos/products-list";
 import ProductsForm from "./pages/produtos/products-form";
+import Home from "./pages/home/home";
 
 function App() {
   return (
@@ -19,7 +22,7 @@ function App() {
         <Header />
         <main className="flex-1 p-6 md:p-8 overflow-y-auto">
           <Routes>
-            <Route path="/" element={<h1 className="text-3xl font-bold text-gradient">Página Inicial</h1>} />
+            <Route path="/" element={<Home />} />
             {/* Rotas para Clientes */}
             <Route path="/clientes" element={<ClientsList />} />
             <Route path="/clientes/novo" element={<ClientsForm />} />
@@ -36,6 +39,10 @@ function App() {
             <Route path="/vendas" element={<VendasList />} />
             <Route path="/vendas/novo" element={<VendasForm />} />
             <Route path="/vendas/edit/:id" element={<VendasForm />} />
+            {/* Rotas para Compras */}
+            <Route path="/compras" element={<ComprasList />} />
+            <Route path="/compras/novo" element={<ComprasForm />} />
+            <Route path="/compras/edit/:id" element={<ComprasForm />} />
           </Routes>
           <ToastContainer />
         </main>

@@ -54,6 +54,13 @@ const VendasForm = () => {
                 // Se for edição, carregar venda
                 if (id) {
                     const response = await vendasService.getById(id);
+                    // 204 = registro não encontrado (a API devolve vazio)
+                    if (!response?.data?.length) {
+                        toast.error("venda não encontrada.");
+                        navigate("/vendas");
+                        return;
+                    }
+
                     const dados = response.data[0];
 
                     setVenda({
@@ -333,7 +340,7 @@ const VendasForm = () => {
 
             {/* Produtos da venda */}
             <Card
-                title="Produtos da Venda"
+                title="produtos da venda"
                 className="lg:col-span-2"
                 actions={
                     <Button
@@ -341,7 +348,7 @@ const VendasForm = () => {
                         onClick={adicionarProduto}
                         className="btn-primary inline-flex items-center gap-1.5"
                     >
-                        <HiPlus /> Adicionar Produto
+                        <HiPlus /> adicionar produto
                     </Button>
                 }
             >
@@ -366,7 +373,7 @@ const VendasForm = () => {
                                 <div className="col-span-4 @xl:col-span-5">
                                     <select
                                         required
-                                        aria-label="Produto"
+                                        aria-label="produto"
                                         value={produto.ID_PRODUTO}
                                         onChange={(e) =>
                                             selecionarProduto(index, e.target.value)
@@ -374,7 +381,7 @@ const VendasForm = () => {
                                         className={`${selectClass} py-1.5! mt-0!`}
                                     >
                                         <option value="">
-                                            Selecione um produto
+                                            selecione um produto
                                         </option>
 
                                         {produtos.map((item) => (
@@ -427,7 +434,7 @@ const VendasForm = () => {
                                     <button
                                         type="button"
                                         onClick={() => removerProduto(index)}
-                                        title="Remover produto"
+                                        title="remover produto"
                                         className="p-1.5 rounded-lg text-red-500 hover:bg-red-500/10 transition-colors cursor-pointer"
                                     >
                                         <HiTrash className="w-4 h-4" />

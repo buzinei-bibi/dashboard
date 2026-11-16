@@ -10,6 +10,8 @@ const Input = ({
     maxLength,
     mask,
     className = "",
+    // demais atributos (id, min, step, aria-label...) vão direto para o <input>
+    ...rest
 }) => {
 
     const applyMask = (value, mask) => {
@@ -63,10 +65,11 @@ const Input = ({
 
     return (
         <input
+            {...rest}
             required={required}
             maxLength={maxLength}
             type={type}
-            value={value}
+            value={value ?? ""}
             onChange={handleChange}
             name={name}
             placeholder={placeholder}

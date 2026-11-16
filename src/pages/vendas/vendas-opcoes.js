@@ -1,17 +1,14 @@
-// Opções de venda: "value" é o que vai para o banco (igual ao ENUM),
-// "label" é o texto exibido na tela, com acentuação correta.
-
 export const FORMAS_PAGAMENTO = [
-    { value: "Pix", label: "Pix" },
-    { value: "Dinheiro", label: "Dinheiro" },
-    { value: "Credito", label: "Cartão de Crédito" },
-    { value: "debito", label: "Cartão de Débito" },
+    { value: "pix", label: "pix" },
+    { value: "dinheiro", label: "dinheiro" },
+    { value: "crédito", label: "cartão de crédito" },
+    { value: "débito", label: "cartão de débito" },
 ];
 
 export const STATUS_VENDA = [
-    { value: "pendente", label: "Pendente" },
-    { value: "Finalizado", label: "Finalizado" },
-    { value: "Cancelado", label: "Cancelado" },
+    { value: "pendente", label: "pendente"},
+    { value: "finalizado", label: "finalizado" },
+    { value: "cancelado", label: "cancelado" },
 ];
 
 // Compara ignorando maiúsculas/minúsculas e acentos ("CRÉDITO" == "credito")
