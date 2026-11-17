@@ -13,15 +13,16 @@ import SuppliersForm from "./pages/fornecedores/suppliers-form";
 import ProductsList from "./pages/produtos/products-list";
 import ProductsForm from "./pages/produtos/products-form";
 import Home from "./pages/home/home";
+import Login from "./pages/login/login";
+import MainLayout from "./pages/mainlayout";
 
 function App() {
   return (
-    <div className="flex w-full h-screen overflow-hidden bg-app text-slate-800 dark:text-slate-100 uppercase">
-      <Sidebar />
-      <div className="flex flex-col flex-1 min-w-0">
-        <Header />
-        <main className="flex-1 p-6 md:p-8 overflow-y-auto">
+    <>
           <Routes>
+              {/* rota para login */}
+            <Route path="/login" element={<Login />} />
+            <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
             {/* Rotas para Clientes */}
             <Route path="/clientes" element={<ClientsList />} />
@@ -43,11 +44,10 @@ function App() {
             <Route path="/compras" element={<ComprasList />} />
             <Route path="/compras/novo" element={<ComprasForm />} />
             <Route path="/compras/edit/:id" element={<ComprasForm />} />
+                </Route>
           </Routes>
           <ToastContainer />
-        </main>
-      </div>
-    </div>
+              </>
   );
 }
 
