@@ -1,19 +1,7 @@
-// Regras de senha forte, baseadas nas recomendações da OWASP e do NIST (SP 800-63B):
-// - mínimo de 8 caracteres (menos que isso é quebrado rápido por força bruta)
-// - aceitar senhas longas (até 64), para quem usa frases-senha ou gerenciador de senhas
-// - bloquear senhas comuns/vazadas, que são as primeiras testadas em ataques
-// - não usar dados da própria pessoa (como o e-mail)
-// Maiúscula, minúscula, número e símbolo deixam a senha mais difícil de adivinhar.
-//
-// IMPORTANTE: validar no navegador ajuda quem está digitando, mas não protege nada
-// sozinho (dá para pular pelo DevTools). A conferência de verdade tem que ser no
-// servidor: senha guardada com hash (bcrypt/argon2), limite de tentativas e resposta
-// genérica ("e-mail ou senha inválidos").
-
 export const SENHA_MIN = 8;
 export const SENHA_MAX = 64;
 
-// Senhas mais usadas e vazadas (inclui as que "passam" nas regras, como Senha@123)
+// senhas mais usadas e vazadas (inclui as que "passam" nas regras, como Senha@123)
 const SENHAS_COMUNS = [
     "12345678", "123456789", "1234567890", "87654321", "11111111", "00000000",
     "password", "password1", "password123", "password@123", "password1!",
@@ -27,7 +15,6 @@ const SENHAS_COMUNS = [
 
 const ehComum = (senha) => SENHAS_COMUNS.includes(senha.toLowerCase());
 
-// Parte do e-mail antes do @ (ex: "maria" em maria@empresa.com)
 const usaEmail = (senha, email) => {
     const usuario = email.split("@")[0]?.toLowerCase() ?? "";
     return usuario.length >= 3 && senha.toLowerCase().includes(usuario);
