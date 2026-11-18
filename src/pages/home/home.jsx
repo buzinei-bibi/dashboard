@@ -102,8 +102,8 @@ const Home = () => {
                     </h2>
 
                     <p className="mt-5 text-sm md:text-base text-slate-600 dark:text-purple-100/70 max-w-md">
-                        clientes, fornecedores, produtos, vendas e compras em um só lugar.
-                        escolha um atalho abaixo ou use o menu ao lado.
+                        gestão integrada de clientes, fornecedores, produtos, vendas e compras.
+                        controle total da sua operação em um único painel.
                     </p>
 
                     <div className="mt-8 flex flex-wrap gap-3">
