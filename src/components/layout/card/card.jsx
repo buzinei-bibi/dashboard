@@ -15,7 +15,7 @@ const Card = ({
             className={`
             rounded-2xl
             border
-            border-purple-200/70
+            border-black
             dark:border-white/10
             bg-surface
             backdrop-blur-xl
@@ -28,15 +28,17 @@ const Card = ({
                 <div
                     className="
                         flex
+                        flex-wrap
                         justify-between
                         items-center
-                        px-6 py-4
+                        gap-2 sm:gap-3
+                        px-3 sm:px-6 py-3 sm:py-4
                         border-b
-                        border-purple-100
+                        border-black
                         dark:border-white/10
                     "
                 >
-                    <h3 className="font-semibold text-base tracking-tight">
+                    <h3 className="font-semibold text-sm sm:text-base tracking-tight">
                         {title}
                     </h3>
                     {actions}
@@ -56,7 +58,7 @@ const Card = ({
                     )}
                 </div>
             )}
-            <div className="p-6">
+            <div className="p-3 sm:p-6">
                 {children}
             </div>
         </div>

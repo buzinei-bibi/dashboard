@@ -111,9 +111,10 @@ const ProductsForm = () => {
             onSubmit={handleSubmit}
             className="w-full flex flex-col gap-4"
           >
-            <div className="flex gap-4">
+            {/* no celular a foto fica em cima e os campos embaixo */}
+            <div className="flex flex-col sm:flex-row gap-4">
               {/* Foto */}
-              <div>
+              <div className="flex justify-center sm:block">
                 <ImageUpload
                   value={produto.IMAGEM}
                   onChange={(base64) =>
@@ -125,7 +126,7 @@ const ProductsForm = () => {
                 />
               </div>
               <div className="flex flex-col gap-4 w-full">
-                <div className="flex w-full gap-4">
+                <div className="flex flex-col md:flex-row w-full gap-4">
                   {/* Produto */}
                   <div className="w-full">
                     <Label htmlFor="produto" required>
@@ -168,7 +169,7 @@ const ProductsForm = () => {
                   </div>
                 </div>
 
-                <div className="flex w-full gap-4">
+                <div className="flex flex-col md:flex-row w-full gap-4">
                   {/* QUANTIDADE */}
                   <div className="w-full">
                     <Label htmlFor="quantidade" required>Quantidade</Label>

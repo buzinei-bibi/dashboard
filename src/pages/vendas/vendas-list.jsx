@@ -115,7 +115,7 @@ const VendasList = () => {
       render: (row) => labelStatus(row.STATUS),
     },
     {
-      header: "$ total",
+      header: "total",
       accessor: "TOTAL",
       render: (row) => formatarMoeda(totalDaVenda(row)),
     },

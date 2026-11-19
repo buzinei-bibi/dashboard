@@ -78,7 +78,7 @@ const ImageUpload = ({
                         <img
                             src={value}
                             alt="Produto"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain bg-white"
                         />
 
                         <button

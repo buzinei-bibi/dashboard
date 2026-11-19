@@ -113,7 +113,7 @@ const ComprasList = () => {
       render: (row) => labelStatus(row.STATUS),
     },
     {
-      header: "$ total",
+      header: "total",
       accessor: "TOTAL",
       render: (row) => formatarMoeda(totalDaCompra(row)),
     },

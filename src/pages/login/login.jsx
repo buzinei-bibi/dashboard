@@ -92,7 +92,7 @@ const Login = () => {
       <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-violet-400/25 blur-3xl" />
 
       {/* card login */}
-      <div className="relative z-10 w-full max-w-md rounded-3xl border border-purple-200/70 dark:border-white/10 bg-surface p-8 backdrop-blur-xl shadow-[0_20px_50px_-24px_rgba(91,33,182,0.35)] dark:shadow-[0_20px_50px_-24px_rgba(0,0,0,0.8)]">
+      <div className="relative z-10 w-full max-w-md rounded-3xl border border-purple-200/70 dark:border-white/10 bg-surface p-6 sm:p-8 backdrop-blur-xl shadow-[0_20px_50px_-24px_rgba(91,33,182,0.35)] dark:shadow-[0_20px_50px_-24px_rgba(0,0,0,0.8)]">
         {/* header */}
         <div className="mb-8 flex flex-col items-center">
           <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-brand shadow-glow">
@@ -208,7 +208,7 @@ const Login = () => {
           </div>
 
           {/* opções */}
-          <div className="flex items-center justify-between text-sm">
+          <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
             <label className="flex cursor-pointer items-center gap-2 text-slate-600 dark:text-purple-200/70">
               <input
                 type="checkbox"

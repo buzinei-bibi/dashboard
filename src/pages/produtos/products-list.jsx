@@ -10,6 +10,26 @@ import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { BsPencilFill, BsTrashFill } from 'react-icons/bs'
 
+// foto do produto; sem foto (ou se o link estiver quebrado) não mostra nada
+// a imagem fica escondida até terminar de carregar, assim o link quebrado
+// não pisca um quadrado branco quando a página recarrega
+const ProdutoImagem = ({ src, alt, className = "" }) => {
+  const [erro, setErro] = React.useState(false);
+  const [carregou, setCarregou] = React.useState(false);
+
+  if (!src || erro) return null;
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      onLoad={() => setCarregou(true)}
+      onError={() => setErro(true)}
+      className={`rounded-md object-contain bg-white ${className} ${carregou ? "" : "hidden"}`}
+    />
+  );
+};
+
 const SuppliersList = () => {
   const [loading, setLoading] = React.useState(true);
   const [produtos, setProdutos] = React.useState([]);
@@ -70,20 +90,18 @@ const SuppliersList = () => {
     },
 
     {
-  header: "imagem",
-  accessor: "IMAGEM",
-  render: (row) =>
-    row.IMAGEM ? (
-      <img
-        src={row.IMAGEM}
-        alt={row.PRODUTO}
-        className="w-16 h-16 rounded-md object-cover"
-        onError={(e) => {
-          e.currentTarget.style.display = "none";
-        }}
-      />
-    ) : null,
-},
+      header: "imagem",
+      accessor: "IMAGEM",
+      // na tabela (computador): miniatura
+      render: (row) => (
+        <ProdutoImagem key={row.IMAGEM} src={row.IMAGEM} alt={row.PRODUTO} className="w-16 h-16" />
+      ),
+      // no cartão (celular): imagem no topo, na largura do cartão e altura proporcional à foto
+      cardTopo: true,
+      renderCard: (row) => (
+        <ProdutoImagem key={row.IMAGEM} src={row.IMAGEM} alt={row.PRODUTO} className="block w-full h-auto" />
+      ),
+    },
     {
       header: "produto",
       accessor: "PRODUTO",

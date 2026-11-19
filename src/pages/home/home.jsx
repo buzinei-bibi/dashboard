@@ -82,13 +82,13 @@ const Home = () => {
         ];
 
     return (
-        <section className="relative isolate min-h-full flex items-center overflow-hidden -m-6 md:-m-8 p-6 md:p-10">
+        <section className="relative isolate min-h-full flex items-center overflow-hidden -m-4 sm:-m-6 md:-m-8 p-4 sm:p-6 md:p-10">
             {/* coração de fundo */}
-            <HeartBackground className="absolute -z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] md:w-[920px] max-w-none" />
+            <HeartBackground className="absolute -z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[92vw] max-w-[920px]" />
             {/* brilho roxo atrás do coração */}
             <div className="pointer-events-none absolute -z-20 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-purple-600/20 dark:bg-purple-700/20 blur-3xl" />
 
-            <div className="w-full grid grid-cols-1 xl:grid-cols-[1fr_minmax(0,30rem)] gap-10 items-center">
+            <div className="w-full grid grid-cols-1 xl:grid-cols-[1fr_minmax(0,30rem)] gap-5 md:gap-10 items-center">
                 {/* Texto principal */}
                 <div className="max-w-xl">
                     <span className="inline-flex items-center gap-2 rounded-full border border-purple-300/60 dark:border-white/10 bg-surface px-3 py-1 text-[11px] font-semibold tracking-[0.18em] text-purple-700 dark:text-purple-200">
@@ -96,7 +96,7 @@ const Home = () => {
                         painel administrativo
                     </span>
 
-                    <h2 className="mt-5 text-4xl md:text-5xl font-extrabold leading-[1.05] tracking-tight">
+                    <h2 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.05] tracking-tight">
                         Gerencie sua loja <br />
                         <span className="text-gradient">com o coração</span>
                     </h2>
@@ -106,13 +106,14 @@ const Home = () => {
                         controle total da sua operação em um único painel.
                     </p>
 
-                    <div className="mt-8 flex flex-wrap gap-3">
-                        <Link to="/vendas/novo" className="btn-primary inline-flex items-center gap-2 px-5 py-3 text-sm">
+                    {/* no celular os dois botões ficam lado a lado, cada um com metade da largura */}
+                    <div className="mt-6 md:mt-8 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3">
+                        <Link to="/vendas/novo" className="btn-primary inline-flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap px-3 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm">
                             <HiPlus /> nova venda
                         </Link>
                         <Link
                             to="/compras/novo"
-                            className="inline-flex items-center gap-2 rounded-[0.625rem] px-5 py-3 text-sm font-semibold border border-purple-300 dark:border-white/15 text-purple-700 dark:text-purple-100 bg-surface hover:bg-purple-200/40 dark:hover:bg-white/10"
+                            className="inline-flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap rounded-[0.625rem] px-3 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold border border-purple-300 dark:border-white/15 text-purple-700 dark:text-purple-100 bg-surface hover:bg-purple-200/40 dark:hover:bg-white/10"
                         >
                             <HiPlus /> nova compra
                         </Link>

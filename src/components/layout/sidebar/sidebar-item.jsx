@@ -14,8 +14,7 @@ const SidebarItem = ({
                 gap-3
                 py-2.5
                 items-center
-                justify-center
-                md:justify-start
+                justify-start
                 px-3
                 rounded-xl
                 text-sm
@@ -25,7 +24,7 @@ const SidebarItem = ({
                     : 'text-white/70 hover:text-white hover:bg-white/10'}
         `}>
             <Icon className="text-xl shrink-0" />
-            <span className="hidden md:inline">{label}</span>
+            <span>{label}</span>
         </NavLink>
     )
 }
